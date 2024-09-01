@@ -87,7 +87,6 @@ model_nc.compile(optimizer='adam', loss=tf.keras.losses.MeanSquaredError())
 callbacks = [ReduceLROnPlateau(monitor='val_loss', patience=5, verbose=1, factor=0.6),
              EarlyStopping(monitor='val_loss', patience=200),
              ModelCheckpoint(filepath='best_model_12.h5', monitor='val_loss', save_best_only=False)]
-# fit the model
 history2=model_nc.fit(train_X , train_y , epochs=500, batch_size=2, validation_data=(test_X, test_y), verbose=2,
                shuffle=True,callbacks=callbacks) 
 
